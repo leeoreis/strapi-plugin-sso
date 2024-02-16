@@ -87,7 +87,7 @@ async function azureAdSignInCallback(ctx) {
       ? apiResponse
       : {
           data: {
-            email: apiResponse.data.userPrincipalName,
+            email: apiResponse.data.email,
             family_name: apiResponse.data.surname,
             given_name: apiResponse.data.givenName,
           },
