@@ -13,8 +13,8 @@ module.exports = ({ strapi }) => ({
     }
 
     const createdUser = await userService.create({
-      firstname: firstname ? firstname : "unset",
-      lastname: lastname ? lastname : "",
+      firstname: firstname,
+      lastname: lastname,
       email: email.toLocaleLowerCase(),
       roles,
       preferedLanguage: locale,
@@ -23,8 +23,8 @@ module.exports = ({ strapi }) => ({
     return await userService.register({
       registrationToken: createdUser.registrationToken,
       userInfo: {
-        firstname: firstname ? firstname : "unset",
-        lastname: lastname ? lastname : "user",
+        firstname: firstname,
+        lastname: lastname,
         password: generator.generate({
           length: 43, // 256 bits (https://en.wikipedia.org/wiki/Password_strength#Random_passwords)
           numbers: true,
